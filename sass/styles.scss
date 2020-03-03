@@ -9,6 +9,8 @@ $bodyBackground: #f9e7e0;
 $raisedElBackground: #f57f54;
 $globalFont: "Alata", sans-serif;
 
+$inputFormSpacing: 0.3em;
+
 * {
   box-sizing: border-box;
 }
@@ -94,20 +96,22 @@ footer {
   font-size: 20px;
 }
 
-#contact-form {
-  width: 35%;
+.contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 460px;
   padding: 0.5em;
   margin: 0 auto;
 
   .name-form,
   .email-form {
-    display: inline-block;
-    width: 49.5%;
     padding: 0.1em;
+    flex: 1 1 50%;
 
     label, input {
       display: block;
       width: 100%;
+      padding: 0.1em;
     }
 
     input {
@@ -116,31 +120,33 @@ footer {
       border: 0;
       border-radius: 0.25rem;
     }
-
-    label {
-      padding: 0.1em;
-    }
   }
+
+  .name-form {padding-right: $inputFormSpacing;}
+  .email-form {padding-left: $inputFormSpacing;}
 
   .message-form {
     padding: 0.1em;
+    flex: 1 1 100%;
 
     label {
       display: block;
-      padding: 0.1em;
+      padding: 0.1em 0.1em 0.2em;
     }
 
     textarea {
       display: block;
-      width: 100%;
       min-height: 10em;
       max-height:30em;
+      width: 100%;
       resize: vertical;
       outline: none;
       border: 0;
       border-radius: 0.25rem;
     }
   }
+
+
 
   .submit-btn {
     background: $raisedElBackground;
@@ -152,16 +158,17 @@ footer {
     line-height: 2em;
     width: 7em;
     cursor: pointer;
-    &:hover {
+    &:hover, &:focus {
       color: white;
+      outline: none;
     }
   }
 }
 
-#contact-form {background: rosybrown}
-.name-form {background: orange}
-.email-form {background: blueviolet}
-.message-form {background: yellowgreen}
+//.contact-form {background: rosybrown}
+//.name-form {background: orange}
+//.email-form {background: blueviolet}
+//.message-form {background: yellowgreen}
 
 footer {
   line-height: 50px;
@@ -185,7 +192,14 @@ footer {
 @media (max-width: 500px) {
   .navbar-nav {
     li {
-      flex-basis: 100%;
+      flex: 100%;
+    }
+  }
+
+  .contact-form {
+    .name-form, .email-form {
+      flex: 100%;
+      padding: 0.1em;
     }
   }
 }

@@ -77,52 +77,57 @@ footer {
   font-size: 20px;
 }
 
-#contact-form {
-  width: 35%;
+.contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 460px;
   padding: 0.5em;
   margin: 0 auto;
 }
-#contact-form .name-form,
-#contact-form .email-form {
-  display: inline-block;
-  width: 49.5%;
+.contact-form .name-form,
+.contact-form .email-form {
   padding: 0.1em;
+  flex: 1 1 50%;
 }
-#contact-form .name-form label, #contact-form .name-form input,
-#contact-form .email-form label,
-#contact-form .email-form input {
+.contact-form .name-form label, .contact-form .name-form input,
+.contact-form .email-form label,
+.contact-form .email-form input {
   display: block;
   width: 100%;
+  padding: 0.1em;
 }
-#contact-form .name-form input,
-#contact-form .email-form input {
+.contact-form .name-form input,
+.contact-form .email-form input {
   outline: none;
   line-height: 2em;
   border: 0;
   border-radius: 0.25rem;
 }
-#contact-form .name-form label,
-#contact-form .email-form label {
-  padding: 0.1em;
+.contact-form .name-form {
+  padding-right: 0.3em;
 }
-#contact-form .message-form {
-  padding: 0.1em;
+.contact-form .email-form {
+  padding-left: 0.3em;
 }
-#contact-form .message-form label {
+.contact-form .message-form {
+  padding: 0.1em;
+  flex: 1 1 100%;
+}
+.contact-form .message-form label {
   display: block;
-  padding: 0.1em;
+  padding: 0.1em 0.1em 0.2em;
 }
-#contact-form .message-form textarea {
+.contact-form .message-form textarea {
   display: block;
-  width: 100%;
   min-height: 10em;
   max-height: 30em;
+  width: 100%;
   resize: vertical;
   outline: none;
   border: 0;
   border-radius: 0.25rem;
 }
-#contact-form .submit-btn {
+.contact-form .submit-btn {
   background: #f57f54;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.045), 0 6.7px 5.3px rgba(0, 0, 0, 0.065), 0 12.5px 10px rgba(0, 0, 0, 0.08), 0 22.3px 17.9px rgba(0, 0, 0, 0.095), 0 41.8px 33.4px rgba(0, 0, 0, 0.115), 0 100px 80px rgba(0, 0, 0, 0.16);
   margin: 0.5em 0.1em;
@@ -133,24 +138,9 @@ footer {
   width: 7em;
   cursor: pointer;
 }
-#contact-form .submit-btn:hover {
+.contact-form .submit-btn:hover, .contact-form .submit-btn:focus {
   color: white;
-}
-
-#contact-form {
-  background: rosybrown;
-}
-
-.name-form {
-  background: orange;
-}
-
-.email-form {
-  background: blueviolet;
-}
-
-.message-form {
-  background: yellowgreen;
+  outline: none;
 }
 
 footer {
@@ -170,7 +160,12 @@ footer {
 }
 @media (max-width: 500px) {
   .navbar-nav li {
-    flex-basis: 100%;
+    flex: 100%;
+  }
+
+  .contact-form .name-form, .contact-form .email-form {
+    flex: 100%;
+    padding: 0.1em;
   }
 }
 
