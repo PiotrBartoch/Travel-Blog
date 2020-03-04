@@ -8,6 +8,8 @@ body {
 }
 
 .container {
+  display: flex;
+  flex-flow: column;
   max-width: 1300px;
   margin: 0 auto;
 }
@@ -17,6 +19,7 @@ section,
 footer {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
+  margin: 0.5rem 0;
 }
 
 .title {
@@ -159,13 +162,21 @@ footer {
   }
 }
 @media (max-width: 500px) {
-  .navbar-nav li {
+  .container * {
+    order: 999;
+  }
+
+  .navbar li {
     flex: 100%;
   }
 
   .contact-form .name-form, .contact-form .email-form {
     flex: 100%;
     padding: 0.1em;
+  }
+
+  .navbar-wrapper {
+    order: 1;
   }
 }
 
