@@ -12,6 +12,9 @@ $globalFont: "Alata", sans-serif;
 $sectionsMargin: 0.5rem;
 $inputFormSpacing: 0.3em;
 
+$hamburgerLayer: 5px solid #ffffff;
+$hamburgerAnimation: 0.3s transform linear;
+
 * {
   box-sizing: border-box;
 }
@@ -27,6 +30,7 @@ body {
   max-width: 1300px;
   margin: 0 auto;
 }
+
 
 header,
 section,
@@ -44,6 +48,7 @@ footer {
 
 .navbar-wrapper {
   padding: 15px;
+
 }
 
 .navbar {
@@ -52,6 +57,45 @@ footer {
   padding: 16px;
   background: $raisedElBackground;
   @include raisedElement;
+  text-align: center;
+
+  .hamburger {
+    display: none;
+    width: 40px;
+    height: 35px;
+    border: 0;
+    border-top: $hamburgerLayer;
+    background: transparent;
+    position: relative;
+    transition: $hamburgerAnimation;
+
+    &:before, &:after {
+      content: '';
+      border-top: $hamburgerLayer;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(10px);
+    }
+
+    &:after {
+      transform: translateY(25px);
+      transition: $hamburgerAnimation;
+    }
+
+    &:focus {
+      outline: none;
+      border: none;
+      transform: rotate(45deg) translateY(5px);
+    }
+
+    &:focus {
+      &:after {
+        transform: rotate(-90deg) translateX(-10px);
+      }
+    }
+  }
 
   ul {
     display: flex;
@@ -75,6 +119,7 @@ footer {
   a {
     text-decoration: none;
     color: #eeede7;
+
     &:hover {
       color: white;
     }
@@ -126,8 +171,13 @@ footer {
     }
   }
 
-  .name-form {padding-right: $inputFormSpacing;}
-  .email-form {padding-left: $inputFormSpacing;}
+  .name-form {
+    padding-right: $inputFormSpacing;
+  }
+
+  .email-form {
+    padding-left: $inputFormSpacing;
+  }
 
   .message-form {
     padding: 0.1em;
@@ -141,7 +191,7 @@ footer {
     textarea {
       display: block;
       min-height: 10em;
-      max-height:30em;
+      max-height: 30em;
       width: 100%;
       resize: vertical;
       outline: none;
@@ -149,7 +199,6 @@ footer {
       border-radius: 0.25rem;
     }
   }
-
 
 
   .submit-btn {
@@ -162,6 +211,7 @@ footer {
     line-height: 2em;
     width: 7em;
     cursor: pointer;
+
     &:hover, &:focus {
       color: white;
       outline: none;
@@ -194,8 +244,16 @@ footer {
 }
 
 @media (max-width: 500px) {
-  .container * {order: 999}
+  .container * {
+    order: 999
+  }
+
+
   .navbar {
+    .hamburger {
+      display: inline-block;
+    }
+
     li {
       flex: 100%;
     }
